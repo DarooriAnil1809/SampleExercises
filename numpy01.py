@@ -1,195 +1,251 @@
-#NUMPY- Numerical PYTHON
-#PYTHON LIBRARY, WORKING WITH ARRAYS
-#Domain - Algebra, Fourier Transform, Matrices
-#NUMPY Provides array object,50x faster than lists in python
-#ndarray
+# NUMPY- Numerical PYTHON
+# PYTHON LIBRARY, WORKING WITH ARRAYS
+# Domain - Algebra, Fourier Transform, Matrices
+# NUMPY Provides array object,50x faster than lists in python
+# ndarray
 
-#pip install numpy
+# pip install numpy
 
 import numpy as np
 
-arr = np.array([2,34,5,8,59])
+arr = np.array([2, 34, 5, 8, 59])
+print("Numpy Example")
 print(arr)
 
 
-#Checking Numpy Version
+# Checking Numpy Version
+print("Numpy Version")
 print(np.__version__)
 
 
-#NUMPY Creating Arrays
-arr = np.array([1,2,3,4,5])
+# NUMPY Creating Arrays
+arr = np.array([1, 2, 3, 4, 5])
 print(arr)
 print(type(arr))
 
+# Creating a Rank 1 Array
+arr = np.array([1, 2, 3])
+print("Array with Rank1: \n", arr)
 
-#using tuple to create numpy
-arr = np.array((10,11,12,13,14))
+# Creating a Rank 2 Array
+arr = np.array([[1, 2, 3],
+                [4, 5, 6]])
+print("Array with Rank 2: \n", arr)
+
+
+# using tuple to create numpy
+arr = np.array((10, 11, 12, 13, 14))
+print("Array Created using passed tuple \n", arr)
+
+
+# Accessing the Array Index
+# Initial Array
+arr = np.array([[-1, 2, 0, 4],
+               [2, 3, 5, 6],
+               [4, 5, 8, 9],
+               [1, 2, 3, 4]])
+print("Initial Array")
 print(arr)
 
+# Print of Range of Array using slicing method
+sliced_arr = arr[:2, ::2]
+print("Sliced Array", sliced_arr)
 
-#Dimensions in Arrays
-
-#O-D Arrays or Scalar
-#Elements in the array, each value in an array is 0-D Array
-
-arr = np.array(42)
-print(arr)
-
-#Output - 42
-
-#1-D Arrays
-#Basic Array or Uni-Dimensional Array
-
-arr = np.array([20,30,40,50])
-print(arr)
+# Printing elements at specific indices
+Index_arr = arr[[1, 1, 0, 3],
+                [3, 2, 1, 0]]
+print("\nElements at indices (1,2),(1,3)", Index_arr)
 
 
-#2-D Arrays
-#Matrix
+# BASIC ARRAY OPERATIONS
+# MATHEMATICAL, UNARY and BINARY OPERATIONS
 
-arr = np.array([[11,22,33],[44,55,66]])
-print(arr)
+# DEFINING ARRAY NO.1
+a = np.array([[1, 2],
+              [3, 4]])
 
+# DEFINING ARRAY NO.2
+b = np.array([[4, 5],
+              [6, 7]])
 
-#3-D Arrays
-# A Array that has 2-D Array or Matrices as its elements
-# 3rd order tensor
-
-arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
-print(arr)
-
-
-#Check Number of Dimensions
-#ndim attribute
-
-a = np.array(42)
-b = np.array([1,2,3])
-c = np.array([[1,2,3],[4,5,6]])
-d = np.array([[[1,2,3],[4,5,6],[70,8,9]]])
-
-print(a.ndim)
-print(b.ndim)
-print(c.ndim)
-print(d.ndim)
-
-#5-D Dimension Array
-
-arr = np.array([2,4,6,8], ndmin=5)
-print(arr)
-print("Number of Dimesions:", arr.ndim)
+# Adding 1 to every element
+print("Adding 1 to every element:", a+1)
+print("Adding 2 to every element:", a+2)
 
 
-
-#NUMPY ARRAY INDEXING
-#Index starts with 0
-#array indexing is the same as accessing an array element
-
-arr = np.array([1,3,5,7,9])
-print(arr[0])
-print(arr[1])
-print(arr[2])
-print(arr[3])
-print(arr[4])
-
-#GET 3rd and 4th element
-arr = np.array([11,33,55,77,99])
-print(arr[2] + arr[3])
-
-#Accessing 2-D Array
-arr = np.array([[2,4,6,8],[10,12,14,16]])
-print("2nd element of 1st row", arr[0,1])
-print("4th element of 2nd row", arr[1,3])
-print("3rd element of 2nd row", arr[1,2])
-print("4th element of 1st row", arr[0,3])
+# Subtract 1 from every element
+print("Subtract 1 from every element:", b-1)
+print("subtract 2 from every element:", b-2)
 
 
-#Access 3-D
-#To Access 3D Arrays 
-arr = np.array([[[1,2,3],[4,5,6]],[[7,8,9],[10,11,12]]])
-print("Third Element of the second arrary of first array",arr[0,1,2])
+# Sum of all array elements
+print("Sum of all array elements:", a.sum())
 
 
-#Negative Indexing
-
-arr = np.array([[1,2,3,4,5],[6,7,8,9,10]])
-print("Last Element from 2nd Dim", arr[1,-1])
-print("Last Element from 1st Dim", arr[0,-1])
+# Adding Two Arrays
+# Binary Operations
+print("\n Array Sum", a+b)
 
 
+# Square each element
+print("Square of each element:", a**2)
 
-#NUMPY ARRAY SLICING
-#SLICING - Taking elements from one index to another index
-#SLICE - [Start:end]
-
-#Slice Elements from index 1 to index 5 from array
-
-arr = np.array([1,2,3,4,5,6,7,8,9])
-print(arr[1:5])
-#output  - [2,3,4,5]
-
-arr = np.array([1,2,3,4,5,6,7,8,9])
-print(arr[4:])
-#output - [5,6,7,8,9]
-
-arr = np.array([1,2,3,4,5,6,7,8,9])
-print(arr[0:4])
-#output - [1,2,3,4]
+# Transpose of array
+Transpose = np.array([[1, 2, 3],
+                      [4, 5, 6],
+                      [7, 8, 9]])
+print("Original array:", Transpose)
+print("Transpose of Array:", Transpose.T)
 
 
-#STEP VALUE TO DETERMINE THE STEP OF SLICING
-arr = np.array([1,2,3,4,5,6,7,8,9])
-print(arr[1:5:2])
+# UNARY OPERATORS
+# Largest element in array
 
-#SLICING 2-D Arrays
-arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
-print(arr[1, 1:4])
-#output - [7,8,9]
+arr = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+print("Largest Element in array:", arr.max())
+print("Smallest Element in array:", arr.min())
+print("Row wise array largest element:", arr.max(axis=1))
+print("Row wise array smallest element:", arr.min(axis=0))
 
-
-arr = np.array([[1, 2, 3, 4, 5], [6, 7, 8, 9, 10]])
-print(arr[0:2, 2])
-#output - [3,8]
+# Cumulative sum of each row
+print("Cumulative sum of each array:", arr.cumsum(axis=1))
 
 
-#NUMPY DATATYPES
-#string,integer, float, boolean,complex
+# Square Root of array values
+d = np.array([[1, 9, 16], [25, 36, 49]])
+print("Square Root of each element:", np.sqrt(d))
 
-#Check the datatype
-arr = np.array([1,2,3,4,5])
-arr1 = np.array([2.3,3.5,5.5,7.8,9.8])
-arrstr = np.array(['ANIL','Kumar','DAROORI'])
-print("The Datatype is ", arr.dtype)
-print("The Datatype is", arr1.dtype )
-print("The Datatype is", arrstr.dtype)
+# Array elements in sorted order
+sort_array = np.array([[20, 14, 3], [1, 50, 22], [31, 12, 18]])
+print("Array in sorted order:", np.sort(sort_array, axis=None))
+print("Array in sorted order - row wise:", np.sort(sort_array, axis=1))
 
 
-#Creating Arrays with defined datatype
-arr1 = np.array([1,2,3,4], dtype='S')
-print(arr1)
-print(arr1.dtype)
+# STACKING - SEVERAL ARRAYS STACKED TOGETHER
+
+arr1 = np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
+arr2 = np.array([[11, 12, 13], [14, 15, 16], [17, 18, 19]])
+print("Vertical Stacking:", np.vstack((arr1, arr2)))
+print("Horizontal Stacking:", np.hstack((arr1, arr2)))
+
+# Concatenation of two arrays
+
+print("Concatenation of arrays:", np.concatenate((a, b), 1))
 
 
-arr2 = np.array([1.1,2.1,3.1,4.1], dtype='i4')
-print(arr2)
-print(arr2.dtype)
+# Splitting Array
+
+a = np.array([[1, 3, 5, 7, 9, 11],
+              [2, 4, 6, 8, 10, 12]])
+
+# horizontal splitting
+print("Splitting along horizontal axis into 2 parts:\n", np.hsplit(a, 2))
+print("Splitting along Vertical axis into 2 parts:\n", np.vsplit(a, 2))
 
 
-#Throws error
-# arr3 = np.array(['1','a', 'z'],dtype='i')
-# print(arr3)
-# print(arr3.dtype)
+# Numpy DataType Object
+x = np.array([1, 2, 3])
+print("Integer Datatype")
+print(x.dtype)
+
+y = np.array([1.0, 2.0, 3.0])
+print("Float Datatype")
+print(y.dtype)
 
 
+# NUMPY STRING OPERATIONS
+# numpy.lower() function - convert to lowercase
+print("Converting into LOWER CASE")
+print(np.char.lower(["DAROORI ANILKUMAR"]))
 
-#Converting Datatype
-
-arr = np.array([2.3,3.5,5.5,7.8,9.8])
-newarr = arr.astype('i')
-print(newarr)
-print(newarr.dtype)
-#output - [2,3,5,7,9]
-
-
+# numpy.upper() function - convert to uppercase
+print("Converting into UPPER CASE")
+print(np.char.upper(["daroori pinky"]))
 
 
+# SPLIT FUNCTION - Split based specified seperator
+print(np.char.split('ANIL KUMAR'))
+
+
+# NUMPY JOIN
+# numpy.join Function()
+print(np.char.join('DAROOR', 'IANILKUMAR'))
+
+# Remove all leading and trailing spaces
+print("STRIP FUNCTION")
+print(np.char.strip('ANIL '))
+
+
+# NUMPY COUNT
+# numpy.count Function()
+a = np.array(['ANIL', 'VIRAT', 'RAHUL'])
+print("COUNT OF SUBSTRING IN EACH WORD")
+print(np.char.count(a, 'A'))
+
+
+# NUMPY RFIND
+# numpy.rfind() function
+
+a = np.array(['ANIL', 'VIRAT', 'RAHUL'])
+print(np.char.rfind(a, 'A'))
+
+
+# NUMPY NUMERIC
+# numpy.isnumeric() Function - check all characters - TRUE, else false
+print(np.char.isnumeric('ANILKUMAR189'))
+
+
+# numpy.equal
+a = np.char.equal('ANIL', 'KUMAR')
+print(a)
+
+
+# LINEAR ALGEBRA
+A = np.array([[6, 1, 1],
+             [4, -2, 5],
+             [2, 8, 7]])
+print("LINEAR ALGEBRA:", A)
+
+
+# RANK OF THE MATRIX
+print("RANK of A:", np.linalg.matrix_rank(A))
+
+# Trace of Matrix
+print("Trace of A:", np.trace(A))
+
+# Determinant of a Matrix
+print("Determinant of A:", np.linalg.det(A))
+
+
+# Inverse of a Matrix
+print("Inverse of A:", np.linalg.inv(A))
+
+
+# NUMPY SORTING
+# numpy.sort() - function returns sorted copy of array
+
+# sort along the first axis
+a = np.array([[12, 15], [10, 1]])
+arr1 = np.sort(a, axis=0)
+print("Along first axis:", arr1)
+
+
+# sort along the last axis
+a = np.array([[10, 15], [12, 1]])
+arr2 = np.sort(a, axis=-1)
+print("\nAlong last axis : \n", arr2)
+
+
+# numpy.argsort()
+# This function returns the indices that would sort an array
+
+a = np.array([9, 3, 1, 7, 6, 4, 2, 5])
+print("Original Array:", a)
+
+
+# NUMPY UNIVERSAL FUNCTIONS
+# TRIGNOMETRY FUNCTIONS
+
+# Create an array of angles
+angles = np.array([0, 30, 45, 60, 90, 180])
 

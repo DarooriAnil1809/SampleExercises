@@ -33,6 +33,13 @@ def myfunc():
 myfunc()
 print("ANIL is" + x)
 
+y = "INTERPRETER"
+def myfunct():
+    y = "DJANGO"
+    print("PYTHON is " + y)
+myfunct()
+print("PYTHON is " + y)
+
 
 #Format String
 age = 30
